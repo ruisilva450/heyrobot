@@ -1,17 +1,20 @@
 import Card from "../components/card";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 const words = require("../words.json");
-
-const currentGameWords = [];
-for (let i = 0; i < 16; i++) {
-  const pickedIndex = Math.floor(Math.random() * words.length);
-  currentGameWords.push(words[pickedIndex]);
-  words.splice(pickedIndex, 1);
-}
 
 export default () => {
   const [team1Points, setTeam1Points] = useState(0);
   const [team2Points, setTeam2Points] = useState(0);
+
+  const currentGameWords = [];
+  for (let i = 0; i < 16; i++) {
+    const pickedIndex = Math.floor(Math.random() * words.length);
+    currentGameWords.push(words[pickedIndex]);
+    words.splice(pickedIndex, 1);
+  }
+  const [currentWords, setCurrentWords] = useState(currentGameWords);
+
+  useEffect(() => {});
   return (
     <div>
       <h1>Hey Robot!</h1>
@@ -19,7 +22,7 @@ export default () => {
       <br />
       <strong>Team 2</strong> - {team2Points}
       <ul>
-        {currentGameWords.map((w) => {
+        {currentWords.map((w) => {
           return (
             <Card
               word={w.word}
