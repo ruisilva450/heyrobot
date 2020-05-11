@@ -22,3 +22,10 @@ li {
   transform: rotate(3deg);
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
+
+li .text {
+  line-height: 0.5rem;
+  text-align: center;
+  font-size: 2rem;
+  text-decoration: underline wavy purple;
+}

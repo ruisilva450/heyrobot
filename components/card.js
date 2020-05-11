@@ -6,7 +6,7 @@ function Card({ word, points, onGotIt = () => {}, onDamnIt = () => {} }) {
       <div style={{ textAlign: "right" }}>{wordPoints}</div>
       <br />
       <br />
-      <strong>{word}</strong>
+      <div className="text">{word}</div>
       <br />
       <br />
       <button
