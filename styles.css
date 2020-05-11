@@ -29,3 +29,21 @@ li .text {
   font-size: 2rem;
   text-decoration: underline wavy purple;
 }
+
+button {
+  background-color: transparent; /* Green */
+  border: none;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+button:hover {
+  text-decoration: underline;
+}
+
+.buttons {
+  text-align: right;
+}

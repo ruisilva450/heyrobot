@@ -9,21 +9,23 @@ function Card({ word, points, onGotIt = () => {}, onDamnIt = () => {} }) {
       <div className="text">{word}</div>
       <br />
       <br />
-      <button
-        onClick={() => {
-          onGotIt(word, wordPoints);
-        }}
-      >
-        Got it!
-      </button>
-      <button
-        onClick={() => {
-          setPoints(wordPoints + 1);
-          onDamnIt();
-        }}
-      >
-        Damn it!
-      </button>
+      <div className="buttons">
+        <button
+          onClick={() => {
+            onGotIt(word, wordPoints);
+          }}
+        >
+          Got it!
+        </button>
+        <button
+          onClick={() => {
+            setPoints(wordPoints + 1);
+            onDamnIt();
+          }}
+        >
+          Damn it!
+        </button>
+      </div>
     </li>
   );
 }
