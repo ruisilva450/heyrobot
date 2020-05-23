@@ -13,21 +13,38 @@ export default () => {
     words.splice(pickedIndex, 1);
   }
   const [currentWords, setCurrentWords] = useState(currentGameWords);
+  const [isTeam1, setIsTeam1] = useState(true);
 
   useEffect(() => {});
   return (
     <div>
       <h1>Hey Robot!</h1>
-      <strong>Team 1</strong> - {team1Points}
-      <br />
-      <strong>Team 2</strong> - {team2Points}
+      <div className="scoring">
+        <span className="score">
+          <strong>{isTeam1 ? "☛ " : ""}Team 1</strong> - {team1Points}
+        </span>
+        <span className="score">
+          <strong>{!isTeam1 ? "☛ " : ""}Team 2</strong> - {team2Points}
+        </span>
+      </div>
       <ul>
-        {currentWords.map((w) => {
+        {currentWords.map((w, i) => {
           return (
             <Card
+              key={w.word}
               word={w.word}
               points={w.points}
-              onGotIt={() => alert("yay")}
+              onGotIt={(_, points) => {
+                const things = currentWords;
+                things.splice(i, 1);
+                console.log("things", things);
+                setCurrentWords(things);
+
+                if (isTeam1) setTeam1Points(team1Points + points);
+                else setTeam2Points(team2Points + points);
+                setIsTeam1(!isTeam1);
+              }}
+              onDamnIt={() => setIsTeam1(!isTeam1)}
             />
           );
         })}
