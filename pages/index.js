@@ -21,11 +21,19 @@ export default () => {
       <h1>Hey Robot!</h1>
       <div className="scoring">
         <span className="score">
-          <strong>{isTeam1 ? "☛ " : ""}Team 1</strong> - {team1Points}
+          <strong>{isTeam1 && "☛ "}Team 1</strong> - {team1Points}
         </span>
         <span className="score">
-          <strong>{!isTeam1 ? "☛ " : ""}Team 2</strong> - {team2Points}
+          <strong>{!isTeam1 && "☛ "}Team 2</strong> - {team2Points}
         </span>
+      </div>
+      <div className="final-score">
+        {currentWords.length === 0 &&
+          team1Points > team2Points &&
+          "Team 1 Wins 🙌🏻"}
+        {currentWords.length === 0 &&
+          team2Points > team1Points &&
+          "Team 2 Wins 🙌🏻"}
       </div>
       <ul>
         {currentWords.map((w, i) => {

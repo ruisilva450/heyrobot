@@ -57,3 +57,8 @@ button:hover {
 .score {
   margin-right: 1rem;
 }
+
+.final-score {
+  margin-top: 2rem;
+  font-size: 3rem;
+}
